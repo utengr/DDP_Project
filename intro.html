@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>This Shiny application is a demonstration of the k Nearest Neighbor (kNN) classification algorithm.  kNN is a &#39;lazy&#39; learner such that it simply takes the descriptive variables of an item, find the nearest k neighbors, where k is the number of neighbors, and classifies the item the same as the majority of the selected neighbors.  The challenge for the practitioner is how to define &#39;distance&#39;.  With n descriptive variables, the curse of dimensionality becomes more of a problem as n increase.  In two dimensions, the distance can simply be calculated as the square root of the sum of squared differences between the dimensions.  But as n increases, this distance can grow to such a point that all points are distant from the item.  </p>
+
+<p>Additionally, one must be careful that the units of a variable do not overpower the distance calculation.  One way to resolve this is to scale the variables so they are all between 0 and 1 or to convert them to a normalized distribution by subtracting the mean of the variable in the entire set from each point and dividing the difference by the standard deviation of the variable in the entire set.  </p>
+
+<p>The Data tab displays the raw data used for the application.  It data is a sample of the <a href="https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+%28Diagnostic%29">Breast Cancer Wisconsin (Diagnostic) Data Set</a>, located on the UCI Machine Learning Repository.   The app allows you to scale the data by normalization (0-1) or by Z-score by using the radio buttons on the left.  </p>
+
+<p>The Stats tab calculates 6 point descriptive statistics of each variable used in algorithm.  The statistics will change as you change the scaling function.  </p>
+
+<p>The Graphs tab displays relationships between the various variables.  You can select the choice and number of variables to compare in the drop down menu to the left.  Highlighted variables are used in the graphs.  Hold down the CTRL key to select/un-select variables.  The variables are shown in scatterplots, histograms, density plots, and rug plots.  Additionally, the correlation coefficient is calculated for each pair and shown in the upper diagonal.  Note that there must be more than one (1) variable selected for the graph to function.  </p>
+
+<p>The Confusion Matrix tab displays how well the algorithm is working.  A subset of 100 observations was held out of the dataset, and the algorithm is used to predict if the sample is Benign or Malignant.  Various measure of the &#39;goodness&#39; of the model are also included.  </p>
+
+<p>You can change the number of neighbors used in the prediction by moving the slider.  Also note the change of predictions at certain k values when you change the scaling technique.  </p>
+
+</body>
+
+</html>
